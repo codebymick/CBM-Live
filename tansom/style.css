@@ -135,7 +135,9 @@ li.search {
   height: 20px;
   margin-top: 10px;
 }
-
+li.search a{
+  color: transparent!important;
+}
 ul.suchen {
   float: right;
 }
