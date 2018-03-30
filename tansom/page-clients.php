@@ -4,7 +4,8 @@ get_header();
   <div id="content" class="clients blk outer">
     <div class="titlebar">  </div>
     <div class="post-entry">
-    <div class="tri-col index">      <div class="boxes">
+    <div class="tri-col index">
+      <div class="boxes">
       <?php if (have_posts()) : ?>
       <?php $url = ($youtube = get_field('youtube')) ? $youtube : get_field('video'); ?>
 
