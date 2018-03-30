@@ -16,7 +16,7 @@ function register_my_menus() {
 		array(
 			'main' => __( 'TopMenu' )
 		)
-	); 
+	);
 }
 add_action( 'init', 'register_my_menus' );
 
@@ -32,12 +32,11 @@ function tansom_enqueue_styles() {
   wp_enqueue_style('responsive', get_bloginfo('template_url').'/responsive.css', array(), null, 'screen');
   wp_enqueue_style('normalize', get_bloginfo('template_url').'/normalize.css', array(), null, 'screen');
 	wp_enqueue_style('mmenu', get_bloginfo('template_url').'/js/jquery.mmenu/jquery.mmenu.css', array(), null, 'screen');
-  
+
 	wp_enqueue_script('jquery');
-	
 	wp_enqueue_script('mmenu', get_bloginfo('template_url').'/js/jquery.mmenu/jquery.mmenu.all.js', array('jquery'), false, true);
 	wp_enqueue_script('core', get_bloginfo('template_url').'/js/script.js', array('jquery'), false, true);
-	
+
 }
 add_action('wp_enqueue_scripts', 'tansom_enqueue_styles');
 
@@ -48,7 +47,7 @@ function new_excerpt_more($more) {
 }
 add_filter('excerpt_more', 'new_excerpt_more');*/
 // CUSTOM POST TYPES
-function work_custom_post_types() {
+/*function work_custom_post_types() {
 
 	    // WORKS custom post list
 		$labels = array(
@@ -90,7 +89,7 @@ add_action('init', 'work_custom_post_types');
 // STUDIO  custom post list
 
 function studio_custom_post_types() {
-  
+
 $labels = array(
 'name'               => _x( 'Studio', 'post type general name', 'tansom'),
 'singular_name'      => _x( 'Studio', 'post type singular name', 'tansom'),
@@ -126,7 +125,7 @@ register_post_type('Studios', $args);
 }
 
 add_action('init', 'studio_custom_post_types');
-
+*/
 
 //sponsors - custom post type
 
@@ -177,47 +176,47 @@ function mytheme_comment($comment, $args, $depth) {
         $tag       = 'li';
         $add_below = 'div-comment';
     }?>
-    <<?php echo $tag; comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php 
+    <<?php echo $tag; comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php
     if ( 'div' != $args['style'] ) { ?>
         <div id="div-comment-<?php comment_ID() ?>" class="comment-body"><?php
     } ?>
-        <div class="comment-author vcard"><?php 
+        <div class="comment-author vcard"><?php
             if ( $args['avatar_size'] != 0 ) {
-                echo get_avatar( $comment, $args['avatar_size'] ); 
-            } 
+                echo get_avatar( $comment, $args['avatar_size'] );
+            }
             printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link() ); ?>
-        </div><?php 
+        </div><?php
         if ( $comment->comment_approved == '0' ) { ?>
-            <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em><br/><?php 
+            <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em><br/><?php
         } ?>
         <div class="comment-meta commentmetadata">
             <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>"><?php
                 /* translators: 1: date, 2: time */
-                printf( 
-                    __('%1$s at %2$s'), 
-                    get_comment_date(),  
-                    get_comment_time() 
+                printf(
+                    __('%1$s at %2$s'),
+                    get_comment_date(),
+                    get_comment_time()
                 ); ?>
-            </a><?php 
+            </a><?php
             edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
         </div>
 
         <?php comment_text(); ?>
 
-        <div class="reply"><?php 
-                comment_reply_link( 
-                    array_merge( 
-                        $args, 
-                        array( 
-                            'add_below' => $add_below, 
-                            'depth'     => $depth, 
-                            'max_depth' => $args['max_depth'] 
-                        ) 
-                    ) 
+        <div class="reply"><?php
+                comment_reply_link(
+                    array_merge(
+                        $args,
+                        array(
+                            'add_below' => $add_below,
+                            'depth'     => $depth,
+                            'max_depth' => $args['max_depth']
+                        )
+                    )
                 ); ?>
-        </div><?php 
+        </div><?php
     if ( 'div' != $args['style'] ) : ?>
-        </div><?php 
+        </div><?php
     endif;
 }
 
