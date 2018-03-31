@@ -129,15 +129,7 @@ html body#top div#page.outer.mm-page.mm-slideout div#content div.section.clearfi
   right: 0;
 }
 
-li.search {
-  background: url('./images/icon-search.png')no-repeat left bottom/contain;
-  width: 20px;
-  height: 20px;
-  margin-top: 10px;
-}
-li.search a{
-  color: transparent!important;
-}
+
 ul.suchen {
   float: right;
 }
@@ -174,12 +166,22 @@ ul.suchen {
   list-style: none;
   float: right;
   padding: 20px 0 0;
+  display: block;
+}
+.nav li{
+  display: inline-block;
+}
+.nav li a {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  margin: 0;
+  padding: 20px 30px;
 }
 
-.nav li {
-  display: inline-block;
-  font-family: 'Oswald', sans-serif;
-  margin: -10px 30px 0;
+.nav li.current-menu-item a, .nav li a:hover,li.search:hover{
+/*  color: #000;
+  background: rgba(255,255,255,.5);*/
+  opacity:.6;
 }
 
 .nav li:first-of-type {
@@ -199,11 +201,19 @@ ul>li:last-child {
 .home #header ul>li:last-child {
   display: inline-block;
 }
-
+.home #header ul>li:last-child a{
+  margin-right: 0;
+  padding-right: 0;
+}
+li.search {
+  background: url(./images/icon-search.png)no-repeat center center/50%;
+}
+li.search a{
+  color: transparent!important;
+}
 a:hover {
   opacity: .6;
 }
-
 .section {
   position: relative;
 }
@@ -212,8 +222,8 @@ a:hover {
   position: absolute;
   text-align: center;
   left: 50%;
-  margin-left: -250px;
-  min-width: 500px;
+  margin-left: -500px;
+  width: 1000px;
   text-transform: uppercase;
   top: 35%;
   line-height: 7px;
