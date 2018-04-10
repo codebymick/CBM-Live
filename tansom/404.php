@@ -3,7 +3,7 @@ get_header();
  $content = explode("<!--more-->", $post->post_content);?>
 
 <div id="links">
-  <div class="container center" style="height: 50vh;">
+  <div class="container center">
     <p style="height:60px!important;"></p>
     <h1></br></h1>
     <h1>Coming soon...</h1>
@@ -14,6 +14,7 @@ get_header();
 
   </div>
 <!-- main content END-->
+</div>
 </div>
 
 <?php get_footer(); ?>

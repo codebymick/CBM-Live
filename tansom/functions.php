@@ -47,7 +47,7 @@ function new_excerpt_more($more) {
 }
 add_filter('excerpt_more', 'new_excerpt_more');*/
 // CUSTOM POST TYPES
-/*function work_custom_post_types() {
+function work_custom_post_types() {
 
 	    // WORKS custom post list
 		$labels = array(
@@ -87,7 +87,7 @@ add_filter('excerpt_more', 'new_excerpt_more');*/
 add_action('init', 'work_custom_post_types');
 
 // STUDIO  custom post list
-
+/*
 function studio_custom_post_types() {
 
 $labels = array(

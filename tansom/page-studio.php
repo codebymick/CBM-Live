@@ -6,7 +6,7 @@
   <div class="section clearfix video">
     <div class="fullscreen-bg">
       <video muted poster="<?php the_sub_field('cover_image');?>" id="vid<?php echo $i ;?>" playsinline muted loop width="100%" class="fullscreen-bg">
-        <source src="<?php the_sub_field('video');?>" type="video/<?php the_sub_field('video_type');?>">
+        <source src="<?php the_sub_field('vimeo_link');?>" type="video/<?php the_sub_field('video_type');?>">
       </video>
     </div>
     <div class="inner">
