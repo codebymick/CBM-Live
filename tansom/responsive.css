@@ -1,6 +1,6 @@
 /*responsive  */
 
-@media(max-width: 1630px) {
+  @media(max-width: 1630px) {
   .outer {
     max-width: initial;
   }
@@ -47,7 +47,6 @@
 }
 
 @media (max-width: 900px) {
-
   .outer {
     margin-top: 0;
   }
@@ -63,7 +62,16 @@
   #content.work {
     background: #111111;
   }
-
+.contact h1, .contact h1.titleio{
+  font-size: 30px;
+  padding-top: 0px;
+}
+.address.kolkata{
+  margin-top: 40px;
+}
+.community{
+  margin-bottom: 50px;
+}
   .services .title h1 {
     margin-bottom: 20px;
   }
@@ -78,9 +86,7 @@
     display: block;
     margin: 10px 0 0 10px;
   }
-  #menu {
-    display: block;
-  }
+
   .responsive-logo {
     display: block;
     margin-right: 40px;

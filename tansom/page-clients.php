@@ -1,35 +1,41 @@
 <?php
 get_header();
 ?>
+
+
   <div id="content" class="clients blk outer">
     <div class="titlebar">  </div>
-    <div class="post-entry">
-    <div class="tri-col index">
-      <div class="boxes">
-      <?php if (have_posts()) : ?>
-      <?php $url = ($youtube = get_field('youtube')) ? $youtube : get_field('video'); ?>
+      <div class="sponsors inner">
+        <h1>Our clients</h1>
+        <p class="boxed">Tansom works with leaders in animation and visual effects for film, television, and special venue attaction.</p>
+        <?php
+      $quotes = new WP_Query(array(
+        'post_type' => 'Sponsors',
+        'order_by' => 'title',
+        'order' => 'ASC'
+      )); if( $quotes->have_posts() ) : while( $quotes->have_posts() ) : $quotes->the_post();
+      ?>
+      <div class="sponsor">
 
-      <?php while (have_posts()) : the_post(); ?>
+        <?php if ( has_post_thumbnail() ) { the_post_thumbnail('medium', array('class' => 'alignleft')); } else {} ?>
 
-    <div class="box">
-
-    <div class="article">
-      <a href="<?php the_permalink();?>">
-      <h4><?php the_title(); ?></h4>
-      </a>
-      <p><?php the_date(); ?>  </p>
-      <div class="excerpt">
-        <?php the_excerpt(); ?>
       </div>
-    </div>
-  </div>
-  <?php   endwhile;endif;  ?>
-</div>
-</div>
-</div>
+    <?php endwhile; wp_reset_postdata(); endif; ?>
 
+		<h1>What they say...</h1>
 
-  </div>
+			<div class="post-box slickster">
+        <?php if( have_rows('quote') ): while ( have_rows('quote') ) : the_row();?>
+          <div class="quote">
+            <q><?php the_sub_field('feedback'); ?></q>
+            <p class="author"><?php the_sub_field('client_id')?>, <?php  the_sub_field('location'); ?></p>
+          </div>
+          <?php endwhile;else:endif; ?>
+
+			</div>
+
+  	</div>
+	</div>
 
 
   <?php get_footer(); ?>

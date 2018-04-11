@@ -1,6 +1,15 @@
 jQuery(document).ready(function ($) {
 
-    $("#menu").mmenu()
+    $("#mobilemenu").mmenu();
+
+
+    $('.slickster').slick({
+          infinite: true,
+          dots: false,
+          arrows :false,
+  		    autoplay: true,
+          speed: 1200,
+      });
 
     $(window).scroll(function () {
         if ($(this).scrollTop() > 600) {
@@ -42,5 +51,8 @@ jQuery(document).ready(function ($) {
             1 == i.paused ? (i.play(), u.innerHTML = "<div class='pauseB'></div>") : (i.pause(), u.innerHTML = "<div class='playB'></div>")
         })
     }
+    $('li.search').on('click',function(){
+        $('.icons.search').toggle();
+      });
 
 });

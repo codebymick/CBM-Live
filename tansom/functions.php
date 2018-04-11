@@ -31,10 +31,12 @@ function tansom_enqueue_styles() {
   wp_enqueue_style('core', get_bloginfo('template_url').'/style.css', array(), null, 'screen');
   wp_enqueue_style('responsive', get_bloginfo('template_url').'/responsive.css', array(), null, 'screen');
   wp_enqueue_style('normalize', get_bloginfo('template_url').'/normalize.css', array(), null, 'screen');
-	wp_enqueue_style('mmenu', get_bloginfo('template_url').'/js/jquery.mmenu/jquery.mmenu.css', array(), null, 'screen');
+  wp_enqueue_style('mmenu', get_bloginfo('template_url').'/core/jquery.mmenu/jquery.mmenu.css', array(), null, 'screen');
+  wp_enqueue_style('slick', get_bloginfo('template_url').'/core/slick/slick.css', array(), null, 'screen');
 
 	wp_enqueue_script('jquery');
-	wp_enqueue_script('mmenu', get_bloginfo('template_url').'/js/jquery.mmenu/jquery.mmenu.all.js', array('jquery'), false, true);
+  wp_enqueue_script('mmenu', get_bloginfo('template_url').'/core/jquery.mmenu/jquery.mmenu.all.js', array('jquery'), false, true);
+  wp_enqueue_script('slick', get_bloginfo('template_url').'/core/slick/slick.min.js', array('jquery'), false, true);
 	wp_enqueue_script('core', get_bloginfo('template_url').'/js/script.js', array('jquery'), false, true);
 
 }
@@ -47,7 +49,7 @@ function new_excerpt_more($more) {
 }
 add_filter('excerpt_more', 'new_excerpt_more');*/
 // CUSTOM POST TYPES
-function work_custom_post_types() {
+function tansom_custom_post_types() {
 
 	    // WORKS custom post list
 		$labels = array(
@@ -82,13 +84,43 @@ function work_custom_post_types() {
 		);
 		register_post_type('Works', $args);
 
-}
+    // cutomer loyalty quotes - feedback
+  $labels = array(
+    'name'               => _x( 'feedback', 'post type general name', 'tansom'),
+    'singular_name'      => _x( 'quote', 'post type singular name', ''),
+    'menu_name'          => _x( 'feedback', 'admin menu', 'tansom'),
+    'name_admin_bar'     => _x( 'feedback', 'add new on admin bar', 'tansom'),
+    'add_new'            => _x( 'New quote', 'book', 'tansom'),
+    'add_new_item'       => __( 'Create newew quote', 'tansom'),
+    'new_item'           => __( 'New quote', 'tansom'),
+    'edit_item'          => __( 'quote edit', 'tansom'),
+    'view_item'          => __( 'quote view', 'tansom'),
+    'all_items'          => __( 'All feedback', 'tansom'),
+    'search_items'       => __( 'search feedback', 'tansom'),
+    'parent_item_colon'  => __( 'Übergeordneter quote', 'tansom'),
+    'not_found'          => __( 'no feedback found', 'tansom'),
+    'not_found_in_trash' => __( 'no feedback found', 'tansom')
+  );
+  $args = array(
+    'labels'             => $labels,
+    'description'        => __('All feedback for our work', 'tansom'),
+    'public'             => true,
+    'publicly_queryable' => true,
+    'show_ui'            => true,
+    'show_in_menu'       => true,
+    'query_var'          => true,
+    'rewrite'            => array('slug' => 'feedback'),
+    'capability_type'    => 'page',
+    'has_archive'        => false,
+    'hierarchical'       => true,
+    'supports'           => array('title', 'editor', 'thumbnail', 'excerpt', 'revisions', 'custom-fields', 'page-attributes')
+  );
+  register_post_type('feedback', $args);
 
-add_action('init', 'work_custom_post_types');
 
 // STUDIO  custom post list
 /*
-function studio_custom_post_types() {
+
 
 $labels = array(
 'name'               => _x( 'Studio', 'post type general name', 'tansom'),
@@ -122,16 +154,11 @@ $args = array(
 );
 register_post_type('Studios', $args);
 
-}
 
-add_action('init', 'studio_custom_post_types');
 */
 
 //sponsors - custom post type
 
-function sponsors_custom_post_types() {
-
-	    //  - Sponsors
 		$labels = array(
 			'name'               => _x( 'Sponsors', 'post type general name', 'tansom'),
 			'singular_name'      => _x( 'Sponsor', 'post type singular name', 'tansom'),
@@ -166,7 +193,7 @@ function sponsors_custom_post_types() {
 
 }
 
-add_action('init', 'sponsors_custom_post_types');
+add_action('init', 'tansom_custom_post_types');
 
 function mytheme_comment($comment, $args, $depth) {
     if ( 'div' === $args['style'] ) {

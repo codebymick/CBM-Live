@@ -45,7 +45,7 @@ get_header();
 									<h4><?php the_title(); ?></h4>
 								</a>
 				      	<p><?php the_date(); ?>  </p>
-				        	<p><?php the_excerpt(); ?></p>
+				        	<p><?php the_content(); ?></p>
 				    	</div>
 				  	</div>
 				  	<?php   endwhile;endif;  ?>
