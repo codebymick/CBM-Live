@@ -11,13 +11,11 @@ get_header();
       'order' => 'ASC'
 		)); if( $quotes->have_posts() ) : while( $quotes->have_posts() ) : $quotes->the_post();
 		?>
-
-        <a class="video">
-          <div class="iframeo"><?php if ( has_post_thumbnail() ) { the_post_thumbnail(); } else { ?><?php the_content();} ?></div>
+    <div class="vidBox">
+      <a class="video">
+        <div class="iframeo"><?php if ( has_post_thumbnail() ) { the_post_thumbnail(); } else { ?><?php the_content();} ?></div>
       </a>
+    </div>
       <?php endwhile; wp_reset_postdata(); endif; ?>
   </div>
-
-
-
   <?php get_footer(); ?>

@@ -4,9 +4,10 @@
   .outer {
     max-width: initial;
   }
-  .work .video {
-    margin: 2px;
+  .vidBox{
+    width: 33%;
   }
+
   .video.col1, .video.col3 {
     margin-left: initial;
     float: none;
@@ -16,7 +17,12 @@
   }
 }
 
-@media(max-width: 1230px) {
+  @media(max-width: 1490px) {
+    .work .video {
+      padding: 0 10px;
+    }
+  }
+  @media(max-width: 1230px) {
   .inner {
     width: 100%;
     padding-left: 20px;
@@ -43,6 +49,9 @@
   }
   .services .title h1 {
     margin-bottom: 50px;
+  }
+  .vidBox{
+    width: 45%;
   }
 }
 
@@ -110,6 +119,11 @@
     padding-right: 5px;
   }
 }
+@media (max-width:750px) {
+  .vidBox{
+    width: 90%;
+  }
+}
 
 @media (max-width:600px) {
   a.video {
@@ -142,5 +156,34 @@
   }
   .title p {
     font-size: 14px;
+  }
+}
+@media
+  (min-width: 767px) and (max-width: 769px){
+    .vidBox{
+      margin: -88px auto!important;
+    }
+    .vidBox:first-of-type{
+      margin-top:0px!important;
+    }
+}
+@media
+  (min-width: 1630px) and (max-width: 1806px),
+  (min-width: 1230px) and (max-width: 1458px){
+  .vidBox{
+    margin: -15px auto;
+  }
+  .vidBox:first-of-type{
+    margin-top:0px!important;
+  }
+}
+@media
+  (min-width: 750px) and (max-width: 1020px),
+  (max-width: 484px){
+  .vidBox{
+    margin: -30px auto;
+  }
+  .vidBox:first-of-type{
+    margin-top:0px!important;
   }
 }

@@ -672,18 +672,28 @@ p.titlebar {
   font-family: 'Myriad Pro', sans-serif;
 }
 
-.work .video {
-  margin: 5px;
+.iframeo>p{
+  padding:0!important;
+  margin: 0!important;
+}
+.vidBox{
   display: inline-block;
+  width: 26%;
+  max-height: 0;
+}
+
+.vidBox iframe{
+  width: 100%!important;
+}
+#player > div{
+  left: 0!important;
+  width: 100%!important;
 }
 #content > div.drinner > a:nth-child(2) > div > p{
   margin: 0!important;
   padding: 0!important;
 }
-.__youtube_prefs__, .iframeo>img {
-  width: 500px !important;
-  height: 281px !important;
-}
+
 
 .video.col1 {
   margin-left: 0px;
